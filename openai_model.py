@@ -80,3 +80,10 @@ def get_cheapest_model(models, task_type="chat"):
     if not filtered:
         raise ValueError(f"No models found for task type '{task_type}'")
     return min(filtered, key=lambda m: m.tpm)
+
+
+def get_learning_model(models):
+    """
+    Returns the cheapest chat model suitable for online learning/practice.
+    """
+    return get_cheapest_model(models, task_type="chat")
